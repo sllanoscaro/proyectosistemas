@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reinforcement Learning</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js"></script>
+ 
+</head>
+<body class="bg-green-50 font-sans text-gray-800">
+<nav class="bg-green-50 border-b border-green-200">
+  <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+    <!-- Izquierda: Logo + Título -->
+    <div class="flex items-center gap-3">
+      <img src="img/cerebro.png" alt="Logo" class="w-7 h-7">
+      <span class="text-lg font-medium text-gray-800">ICC608 - Sistemas Inteligentes</span>
+    </div>
+
+    <!-- Derecha: Enlaces -->
+    <div class="flex items-center gap-6 text-sm md:text-base">
+      <a href="index.html" class="text-gray-700 hover:text-green-600 transition">Inicio</a>
+      <a href="#arbol.html" class="text-gray-700 hover:text-green-600 transition">Arboles de Decision</a>
+      <a href="RL.html" class="font-bold text-black">Reinforcement Learning</a>
+    </div>
+  </div>
+</nav>
+  <div class="container mx-auto p-6 max-w-4xl">
+    <div class="grid grid-cols-[auto_1fr] items-center gap-4 mb-8">
+        <img src="img/flecha-de-diana.png" alt="Árbol" class="w-10 h-10">
+        <h1 class="text-4xl font-bold text-blue-700">Aprendizaje por Refuerzo</h1>
+    </div>
+
+    <!-- Theoretical Explanation -->
+    <section class="mb-12 bg-white p-6 rounded-lg shadow-md">
+      <h2 class="text-2xl font-semibold mb-4">Conceptos</h2>
+
+      <!-- What is Reinforcement Learning? -->
+      <h3 class="text-xl font-medium mb-2">¿Qué es?</h3>
+
+      <p class="mb-4">
+        El aprendizaje por refuerzo (RL) es una técnica de machine learning (ML) que entrena al software para tomar decisiones y lograr los mejores resultados. Imita el proceso de aprendizaje por ensayo y error que los humanos utilizan para alcanzar sus objetivos. Las acciones que acercan al software a su meta se refuerzan, mientras que las que se apartan se ignoran.
+      </p>
+      <p class="mb-4">
+        Los algoritmos de RL utilizan un paradigma de recompensa y castigo al procesar datos. Aprenden de los comentarios de cada acción y descubren por sí mismos las mejores rutas para lograr resultados finales. También son capaces de manejar gratificación aplazada.
+      </p>
+
+      <img src="img/example_RL.png" alt="Reinforcement Learning Diagram" class="w-full mb-4 rounded-lg shadow-md">
+
+      <!-- Key Components -->
+      <h3 class="text-xl font-medium mb-2">Componentes Clave</h3>
+      <ul class="list-disc pl-6 mb-4">
+        <li><strong>Agente</strong>: El que toma decisiones y ejecuta acciones.</li>
+        <li><strong>Entorno</strong>: El mundo o sistema en el que opera el agente.</li>
+        <li><strong>Estado</strong>: La situación o condición actual del agente.</li>
+        <li><strong>Acción</strong>: Los posibles movimientos o decisiones que el agente puede realizar.</li>
+        <li><strong>Recompensa</strong>: La retroalimentación o resultado del entorno basado en la acción del agente.</li>
+      </ul>
+
+      <h3 class="text-xl font-medium mb-2">Ventajas del aprendizaje por refuerzo</h3>
+        <ul class="list-disc pl-6 mb-4">
+            <li><strong>Resolución de problemas complejos</strong>: Capaz de abordar problemas que no se resuelven con técnicas convencionales.</li>
+            <li><strong>Corrección de errores</strong>: Aprende continuamente y corrige errores durante el entrenamiento.</li>
+            <li><strong>Interacción directa con el entorno</strong>: Aprende en tiempo real, permitiendo adaptabilidad.</li>
+            <li><strong>Manejo de entornos no deterministas</strong>: Eficaz en situaciones inciertas o cambiantes, ideal para aplicaciones reales.</li>
+        </ul>
+
+        <!-- Disadvantages -->
+        <h3 class="text-xl font-medium mb-2">Desventajas del aprendizaje por refuerzo</h3>
+        <ul class="list-disc pl-6 mb-4">
+            <li><strong>No es adecuado para problemas simples</strong>: Excesivo para tareas donde algoritmos simples son más eficientes.</li>
+            <li><strong>Altos requisitos computacionales</strong>: Requiere grandes cantidades de datos y potencia computacional.</li>
+            <li><strong>Dependencia de la función de recompensa</strong>: Su eficacia depende del diseño de la recompensa; un diseño pobre puede llevar a comportamientos subóptimos.</li>
+            <li><strong>Dificultad en la depuración e interpretación</strong>: Comprender las decisiones del agente puede ser complicado, dificultando la resolución de problemas.</li>
+        </ul>
+    </section>
+      <!-- Example -->
+
+      <section class="mb-12 bg-white p-6 rounded-lg shadow-md">
+        <h2 class="text-xl font-semibold mb-4">Ejemplo: Navegar por un laberinto</h2>
+        <img src="img/laberinto.png" alt="Maze Example" class="w-full mb-4 rounded-lg shadow-md">
+        <p class="mb-4">
+            Imagina un robot recorriendo un laberinto para alcanzar un diamante, evitando peligros de incendio. El objetivo es encontrar el camino óptimo con el menor número de peligros y maximizando la recompensa:
+        </p>
+        <ul class="list-disc pl-6 mb-4">
+            <li><strong>Exploración</strong>: El robot explora todos los caminos posibles, realizando movimientos como izquierda, derecha, arriba o abajo.</li>
+            <li><strong>Retroalimentación</strong>: Después de cada movimiento, recibe:
+            <ul class="list-circle pl-6">
+                <li>Una recompensa positiva por acercarse al diamante.</li>
+                <li>Una penalización por adentrarse en zonas con peligro de incendio.</li>
+            </ul>
+            </li>
+            <li><strong>Ajuste de comportamiento</strong>: El robot ajusta su estrategia para maximizar la recompensa acumulada, favoreciendo caminos seguros y efectivos.</li>
+            <li><strong>Ruta óptima</strong>: Finalmente, descubre la ruta óptima con la menor cantidad de peligros y la mayor recompensa, basada en sus experiencias.</li>
+        </ul>
+    </section>
+
+    <!-- Interactive Visualization -->
+    <section class="mb-12 bg-white p-6 rounded-lg shadow-md">
+      <h2 class="text-2xl font-semibold mb-4">Prueba Interactiva</h2>
+      <p class="mb-4">
+        A continuación se muestra un laberinto simple de 5x5 donde un agente aprende a navegar hasta la meta (cuadrado verde) mediante aprendizaje Q. Ajuste la velocidad de aprendizaje y la velocidad de exploración para ver cómo evoluciona la política del agente. Haga clic en "Ejecutar episodio" para entrenar al agente en un episodio o en "Reiniciar" para empezar de nuevo.
+      </p>
+      <div class="flex flex-col md:flex-row gap-6">
+        <div id="mazeCanvas" class="flex-1"></div>
+        <div class="flex flex-col gap-4 w-full md:w-1/3">
+          <div>
+            <label for="learningRate" class="block text-sm font-medium">Tasa de Aprendizaje (0 a 1):</label>
+            <input type="range" id="learningRate" min="0" max="1" step="0.01" value="0.1" class="w-full">
+            <span id="learningRateValue" class="text-sm">0.1</span>
+          </div>
+          <div>
+            <label for="explorationRate" class="block text-sm font-medium">Tasa de Exploración (0 a 1):</label>
+            <input type="range" id="explorationRate" min="0" max="1" step="0.01" value="0.1" class="w-full">
+            <span id="explorationRateValue" class="text-sm">0.1</span>
+          </div>
+          <button id="runEpisode" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Run Episode</button>
+          <button id="reset" class="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700">Reset</button>
+          <p class="text-sm">Episodios: <span id="episodeCount">0</span></p>
+          <p class="text-sm">Pasos en el ultimo episodio: <span id="stepCount">0</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Code Example -->
+    <section class="bg-white p-6 rounded-lg shadow-md">
+      <h2 class="text-2xl font-semibold mb-4">Código de ejemplo Q-Learning</h2>
+       <p class="mb-4">
+        Una tabla Q es una estructura de datos que almacena el valor esperado de cada acción en cada estado. El agente utiliza esta tabla para decidir qué acción tomar en cada estado, eligiendo la acción con el valor más alto (explotación) o explorando acciones aleatorias con cierta probabilidad.
+    </p>
+   <p class="mb-4">
+        A continuación se muestra una implementación en Python de Q-learning para un laberinto simple. Inicializa una tabla Q, la actualiza según las acciones y recompensas, y equilibra la exploración y la explotación.
+      </p>
+     
+      <pre class="bg-gray-800 text-white p-4 rounded"><code>
+import numpy as np
+
+# Define the maze (0: free, 1: wall, 2: goal)
+maze = np.array([
+    [0, 0, 0, 1, 0],
+    [0, 1, 0, 1, 0],
+    [0, 1, 0, 0, 0],
+    [0, 1, 1, 1, 0],
+    [0, 0, 0, 0, 2]
+])
+
+# Initialize parameters
+learning_rate = 0.1
+discount_factor = 0.9
+exploration_rate = 0.1
+episodes = 1000
+actions = [(0, 1), (1, 0), (0, -1), (-1, 0)]  # right, down, left, up
+q_table = np.zeros((5, 5, 4))  # 5x5 maze, 4 actions
+
+# Q-learning algorithm
+for episode in range(episodes):
+    state = (0, 0)  # Start position
+    while True:
+        # Choose action (exploration vs exploitation)
+        if np.random.rand() < exploration_rate:
+            action_idx = np.random.choice(len(actions))
+        else:
+            action_idx = np.argmax(q_table[state[0], state[1]])
+        
+        # Take action
+        action = actions[action_idx]
+        next_state = (state[0] + action[0], state[1] + action[1])
+        
+        # Check boundaries and walls
+        if (0 <= next_state[0] < 5 and 0 <= next_state[1] < 5 and maze[next_state] != 1):
+            state_valid = True
+        else:
+            state_valid = False
+            next_state = state
+        
+        # Get reward
+        if state_valid and maze[next_state] == 2:
+            reward = 10
+        elif not state_valid:
+            reward = -1
+        else:
+            reward = -0.1
+        
+        # Update Q-table
+        if state_valid:
+            q_table[state[0], state[1], action_idx] += learning_rate * (
+                reward + discount_factor * np.max(q_table[next_state[0], next_state[1]]) -
+                q_table[state[0], state[1], action_idx]
+            )
+            state = next_state
+        
+        # Check if goal reached
+        if state_valid and maze[state] == 2:
+            break
+
+print("Trained Q-table:")
+print(q_table)
+      </code></pre>
+    </section>
+  </div>
+
+  <script>
+    let maze = [
+      [0, 0, 0, 1, 0],
+      [0, 1, 0, 1, 0],
+      [0, 1, 0, 0, 0],
+      [0, 1, 1, 1, 0],
+      [0, 0, 0, 0, 2]
+    ];
+    let qTable = Array(5).fill().map(() => Array(5).fill().map(() => Array(4).fill(0)));
+    let state = [0, 0];
+    let actions = [[0, 1], [1, 0], [0, -1], [-1, 0]]; // right, down, left, up
+    let learningRate = 0.20;
+    let explorationRate = 0.20;
+    let discountFactor = 0.9;
+    let episodeCount = 115;
+    let stepCount = 100;
+
+    function setup() {
+      let canvasWidth = document.getElementById('mazeCanvas').offsetWidth;
+      let canvas = createCanvas(canvasWidth, canvasWidth);
+      canvas.parent('mazeCanvas');
+      drawMaze();
+    }
+
+    function drawMaze() {
+      background(255);
+      let cellSize = width / 5;
+      for (let i = 0; i < 5; i++) {
+        for (let j = 0; j < 5; j++) {
+          let x = j * cellSize;
+          let y = i * cellSize;
+          if (maze[i][j] === 1) {
+            fill(0);
+          } else if (maze[i][j] === 2) {
+            fill(0, 255, 0);
+          } else {
+            fill(255);
+          }
+          rect(x, y, cellSize, cellSize);
+          if (i === state[0] && j === state[1]) {
+            fill(255, 0, 0);
+            ellipse(x + cellSize / 2, y + cellSize / 2, cellSize / 2);
+          }
+        }
+      }
+    }
+
+    function windowResized() {
+      let canvasWidth = document.getElementById('mazeCanvas').offsetWidth;
+      resizeCanvas(canvasWidth, canvasWidth);
+      drawMaze();
+    }
+
+    function runEpisode() {
+      state = [0, 0];
+      stepCount = 0;
+      while (stepCount < 100) {
+        let actionIdx = chooseAction();
+        let nextState = [state[0] + actions[actionIdx][0], state[1] + actions[actionIdx][1]];
+        let reward = getReward(nextState);
+        if (reward !== -1) {
+          updateQTable(actionIdx, nextState, reward);
+          state = nextState;
+        }
+        stepCount++;
+        if (maze[state[0]][state[1]] === 2) break;
+      }
+      episodeCount++;
+      document.getElementById('episodeCount').textContent = episodeCount;
+      document.getElementById('stepCount').textContent = stepCount;
+      drawMaze();
+    }
+
+    function chooseAction() {
+      if (Math.random() < explorationRate) {
+        return Math.floor(Math.random() * 4);
+      }
+      return qTable[state[0]][state[1]].indexOf(Math.max(...qTable[state[0]][state[1]]));
+    }
+
+    function getReward(nextState) {
+      if (nextState[0] < 0 || nextState[0] >= 5 || nextState[1] < 0 || nextState[1] >= 5 || maze[nextState[0]][nextState[1]] === 1) {
+        return -1;
+      }
+      if (maze[nextState[0]][nextState[1]] === 2) {
+        return 10;
+      }
+      return -0.1;
+    }
+
+    function updateQTable(actionIdx, nextState, reward) {
+      let currentQ = qTable[state[0]][state[1]][actionIdx];
+      let maxNextQ = Math.max(...qTable[nextState[0]][nextState[1]]);
+      qTable[state[0]][state[1]][actionIdx] = currentQ + learningRate * (
+        reward + discountFactor * maxNextQ - currentQ
+      );
+    }
+
+    function reset() {
+      qTable = Array(5).fill().map(() => Array(5).fill().map(() => Array(4).fill(0)));
+      state = [0, 0];
+      episodeCount = 0;
+      stepCount = 0;
+      document.getElementById('episodeCount').textContent = episodeCount;
+      document.getElementById('stepCount').textContent = stepCount;
+      drawMaze();
+    }
+
+    document.getElementById('learningRate').addEventListener('input', (e) => {
+      learningRate = parseFloat(e.target.value);
+      document.getElementById('learningRateValue').textContent = learningRate.toFixed(2);
+    });
+
+    document.getElementById('explorationRate').addEventListener('input', (e) => {
+      explorationRate = parseFloat(e.target.value);
+      document.getElementById('explorationRateValue').textContent = explorationRate.toFixed(2);
+    });
+
+    document.getElementById('runEpisode').addEventListener('click', runEpisode);
+    document.getElementById('reset').addEventListener('click', reset);
+    window.addEventListener('resize', windowResized);
+  </script>
+</body>
+</html>
