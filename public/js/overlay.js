@@ -7,17 +7,20 @@ function showSection(section) {
         datos: {
             title: "¿Qué son los Datos en ML?",
             content: "Los datos son la materia prima del Machine Learning. Son conjuntos de información que los algoritmos utilizan para aprender patrones y hacer predicciones. Pueden ser números, texto, imágenes, sonidos, etc.",
-            img: "icons/base-de-datos.png"
+            img: "icons/base-de-datos.png",
+            color: "#2664EB"
         },
         algoritmo: {
             title: "¿Qué es un Algoritmo en ML?",
             content: "Un algoritmo de ML es un conjunto de reglas y procedimientos matemáticos que permite a una máquina aprender de los datos. Ejemplos incluyen árboles de decisión, redes neuronales, y algoritmos de clustering.",
-            img: "icons/neural.png"
+            img: "icons/neural.png",
+            color:"#16A34A"
         },
         prediccion: {
             title: "¿Qué es una Predicción en ML?",
             content: "Una predicción es el resultado que produce un modelo de ML después de procesar nuevos datos. Es la 'respuesta' que da el sistema basándose en lo que aprendió durante el entrenamiento.",
-            img: "icons/predicciones.png"
+            img: "icons/predicciones.png",
+            color: "#9333EA"
         }
     };
 
@@ -40,7 +43,7 @@ function showModal(sectionData) {
         <div class="modal-overlay" onclick="closeModal()">
             <div class="modal-content" onclick="event.stopPropagation()">
                 <div class="modal-header">
-                    <h3>${sectionData.title}</h3>
+                    <h3 style="color: ${sectionData.color}">${sectionData.title}</h3>
                     <button class="modal-close" onclick="closeModal()">&times;</button>
                 </div>
                 <div class="modal-body">
@@ -104,12 +107,12 @@ function showModal(sectionData) {
                 color: #374151;
             }
             .modal-body {
-                padding: 1.5rem;
+                padding: 1.0rem 1.5rem 1.5rem;
             }
             .modal-body p {
-                margin: 0;
                 line-height: 1.6;
                 color: #4B5563;
+                padding-top: 0.6rem;
             }
         </style>
     `;
