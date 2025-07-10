@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Explorador de Machine Learning Interactivo</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Sistemas Inteligentes</title>
+    <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
+    <link rel="stylesheet" href="css/styles_index.css">
 </head>
 <body>
-<!-- Navigation Bar -->
+    <script src="/js/overlay.js"></script>
+
+    <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-brand">
@@ -20,7 +23,7 @@
             <div class="nav-links">
                 <a href="/index.html" class="nav-link active">Inicio</a>
                 <a href="/arboles-decsision" class="nav-link">Árboles de Decisión</a>
-                <a href="RL.html" class="nav-link">Aprendizaje por Refuerzo</a>
+                <a href="views/RL.html" class="nav-link">Aprendizaje por Refuerzo</a>
             </div>
         </div>
     </nav>
@@ -72,6 +75,7 @@
                     escenario. En lugar de seguir instrucciones previamente definidas, los algoritmos de ML identifican patrones
                     en los datos, y los utilizan para tomar decisiones o hacer predicciones.
                 </p>
+
                 <!-- Interactive Buttons -->
                 <div class="interactive-buttons">
                     <button class="ml-button datos-button" onclick="showSection('datos')">
@@ -93,6 +97,7 @@
         <!-- Learning Sections -->
         <div class="learning-section">
             <div class="sections-container">
+
                 <!-- Decision Tree Section -->
                 <div class="learning-card">
                     <div class="card-header">
@@ -128,13 +133,12 @@
                     <p class="card-description ">
                         En este espacio podrás visualizar cómo un agente recorre un laberinto aprendiendo estrategias óptimas para completarlo.
                     </p>
-                    <button class="learn-button" onclick="navigateToSection('reinforcement-learning')">
+                    <button class="learn-button" onclick="navigateToSection('views/RL.html')">
                         ¡Aprende ahora! →
                     </button>
                 </div>
             </div>
         </div>
     </main>
-
 </body>
 </html>
