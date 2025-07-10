@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorador de Machine Learning Interactivo</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="brand-icon">
+                    <!-- Placeholder for brain icon -->
+                    <img src="icons/cerebro.png" alt="Brain Icon" class="nav-icon">
+                </div>
+                <span class="brand-text">ICC608 - Sistemas Inteligentes</span>
+            </div>
+            <div class="nav-links">
+                <a href="/index.html" class="nav-link active">Inicio</a>
+                <a href="/arboles-decsision" class="nav-link">Árboles de Decisión</a>
+                <a href="RL.html" class="nav-link">Aprendizaje por Refuerzo</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-container">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-icon">
+                <!-- Placeholder for main brain icon -->
+                <img src="icons/cerebro.png" alt="Machine Learning Brain" class="main-icon">
+            </div>
+            <h1 class="hero-title">Explorador de Machine Learning Interactivo</h1>
+            <p class="hero-subtitle">
+                Descubre el fascinante mundo de Machine Learning a través de la exploración interactiva de
+                <strong>Árboles de Decisión</strong> y algoritmos de <strong>Reinforcement Learning</strong>
+            </p>
+        </section>
+
+        <!-- Authors Section -->
+        <section class="authors-section">
+            <div class="authors-container">
+                <div class="authors-icon">
+                    <!-- Placeholder for authors icon -->
+                    <img src="icons/grupo-de-personas.png" alt="Authors" class="section-icon">
+                </div>
+                <h2 class="authors-title">Autores</h2>
+                <div class="authors-names">
+                    <span class="author-name">Javier Alcalde V.</span>
+                    <span class="author-name">Joaquín Faundez C.</span>
+                    <span class="author-name">Sebastián Llanos C.</span>
+                </div>
+                <p class="authors-affiliation">Departamento de Computación e Informática, Universidad de la Frontera</p>
+            </div>
+        </section>
+
+        <!-- What is Machine Learning Section -->
+        <section class="ml-explanation">
+            <div class="explanation-container">
+                <div class="explanation-header">
+                    <div class="explanation-icon">
+                        <!-- Placeholder for book icon -->
+                        <img src="icons/libro.png" alt="Book" class="section-icon">
+                    </div>
+                    <h2 class="explanation-title">¿Qué es Machine Learning?</h2>
+                </div>
+                <p class="explanation-text">
+                    Machine Learning (ML) es un subconjunto de la "Inteligencia Artificial" que permite a una máquina (como un
+                    computador) aprender y tomar decisiones a partir de datos, sin estar explícitamente programada para cada
+                    escenario. En lugar de seguir instrucciones previamente definidas, los algoritmos de ML identifican patrones
+                    en los datos, y los utilizan para tomar decisiones o hacer predicciones.
+                </p>
+                <!-- Interactive Buttons -->
+                <div class="interactive-buttons">
+                    <button class="ml-button datos-button" onclick="showSection('datos')">
+                        <span class="button-question">¿En ML qué son los?</span>
+                        <span class="button-answer">Datos</span>
+                    </button>
+                    <button class="ml-button algoritmo-button" onclick="showSection('algoritmo')">
+                        <span class="button-question">¿En ML qué es un?</span>
+                        <span class="button-answer">Algoritmo</span>
+                    </button>
+                    <button class="ml-button prediccion-button" onclick="showSection('prediccion')">
+                        <span class="button-question">¿En ML qué es una?</span>
+                        <span class="button-answer">Predicción</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Learning Sections -->
+        <div class="learning-section">
+            <div class="sections-container">
+                <!-- Decision Tree Section -->
+                <div class="learning-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <!-- Placeholder for tree icon -->
+                            <img src="icons/arbol-de-graficos.png" alt="Decision Tree" class="card-icon-img">
+                        </div>
+                        <h3 class="card-title">Árbol de decisión</h3>
+                    </div>
+                    <p class="card-subdescription">
+                        Aprende cómo los computadores toman decisiones utilizando modelos de árbol de decisión.
+                    </p>
+                    <p class="card-description">
+                        En este espacio podrás ver cómo funcionan los árboles de decisión de forma interactiva.
+                    </p>
+                    <button class="learn-button" onclick="navigateToSection('arboles-decision')">
+                        ¡Aprende ahora! →
+                    </button>
+                </div>
+
+                <!-- Reinforcement Learning Section -->
+                <div class="learning-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <!-- Placeholder for target icon -->
+                            <img src="icons/objetivo.png" alt="Reinforcement Learning" class="card-icon-img">
+                        </div>
+                        <h3 class="card-title">Aprendizaje por reforzamiento</h3>
+                    </div>
+                    <p class="card-subdescription">
+                        Descubre cómo los agentes aprenden a través de prueba y error, y son capaces de tomar decisiones.
+                    </p>
+                    <p class="card-description ">
+                        En este espacio podrás visualizar cómo un agente recorre un laberinto aprendiendo estrategias óptimas para completarlo.
+                    </p>
+                    <button class="learn-button" onclick="navigateToSection('reinforcement-learning')">
+                        ¡Aprende ahora! →
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
