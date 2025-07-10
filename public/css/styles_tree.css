@@ -49,7 +49,22 @@ h2, h3 {
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     margin-bottom: 2rem;
-    width: 500px;
+    width: 400px;
+}
+
+.content-box-medium-2 {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+    width: 700px;
+}
+
+.content-box-padre {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
 }
 
 .section-divider {
@@ -268,4 +283,49 @@ strong {
 
 .submit-button:hover {
     background-color: #27ae60;
+}
+
+/* ... (Estilos existentes para el contenedor principal y los inputs) ... */
+
+#decision-tree {
+    margin-top: 2rem;
+    padding-left: 1rem;
+    border-left: 3px solid #cfd8dc;
+}
+
+.node, .leaf {
+    margin-top: 1rem;
+    padding: 0.8rem 1.2rem;
+    background-color: #ffffff;
+    border: 2px solid #cfd8dc;
+    border-radius: 6px;
+    width: fit-content;
+    min-width: 300px;
+    position: relative;
+    font-weight: normal;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.child {
+    margin-left: 2rem;
+    position: relative;
+    padding-left: 1rem;
+    border-left: 2px dashed #b0bec5;
+}
+
+.node.highlight {
+    background-color: #e0f7e9;
+    border-color: #2ecc71;
+}
+
+.leaf.approved.highlight {
+    background-color: #d4edda;
+    border-color: #28a745;
+    font-weight: bold;
+}
+
+.leaf.rejected.highlight {
+    background-color: #f8d7da;
+    border-color: #dc3545;
+    font-weight: bold;
 }

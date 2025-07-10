@@ -85,8 +85,98 @@ document.addEventListener('DOMContentLoaded', () => {
             ingresosUltimoMes: parseInt(incomeSlider.value)
         };
         console.log('Datos de entrada:', data);
-        alert('Datos enviados (ver consola para más detalles).');
-        // Aquí podrías agregar la lógica para enviar estos datos a tu modelo de árbol de decisión
-        // o a otra función de JavaScript para procesamiento.
+        evaluateDecisionTree(data);
     });
+
+    function highlightTreePath(conditions) {
+        // Limpia cualquier resaltado previo
+        document.querySelectorAll('.node, .leaf').forEach(node => node.classList.remove('highlight'));
+
+        if (!conditions.hasNoDebtHistory) {
+            document.getElementById('node1').classList.add('highlight');
+            document.getElementById('node1r').classList.add('highlight');
+            return;
+        }
+
+        document.getElementById('node1').classList.add('highlight');
+
+        if (!conditions.hasEnoughIncome) {
+            document.getElementById('node2').classList.add('highlight');
+            document.getElementById('node2r').classList.add('highlight');
+            return;
+        }
+
+        document.getElementById('node2').classList.add('highlight');
+
+        if (!conditions.hasEnoughJobTime) {
+            document.getElementById('node3').classList.add('highlight');
+            document.getElementById('node3r').classList.add('highlight');
+            return;
+        }
+
+        document.getElementById('node3').classList.add('highlight');
+
+        if (!conditions.creditUnderLimit) {
+            document.getElementById('node4').classList.add('highlight');
+            document.getElementById('node5r').classList.add('highlight');
+            return;
+        }
+
+        // Si pasó todas
+        document.getElementById('node4').classList.add('highlight');
+        document.getElementById('node5').classList.add('highlight');
+    }
+
+    // --- Lógica del Árbol de Decisión ---
+    function evaluateDecisionTree(data) {
+        const yearlyIncome = calculateYearlyIncome(data.ingresosUltimoMes);
+
+        // Check all conditions
+        const hasNoDebtHistory = data.historialMorosidad === 'No';
+        const hasEnoughJobTime = data.duracionTrabajoMeses >= 24;
+        const hasEnoughIncome = data.ingresosUltimoMes >= data.montoCredito;
+        const creditUnderLimit = data.montoCredito <= (yearlyIncome * 0.4);
+
+        const isApproved = hasNoDebtHistory &&
+            hasEnoughJobTime &&
+            hasEnoughIncome &&
+            creditUnderLimit;
+
+        highlightTreePath({ hasNoDebtHistory, hasEnoughIncome, hasEnoughJobTime, creditUnderLimit, isApproved });
+
+        evaluateCreditResult(isApproved, {
+            hasNoDebtHistory,
+            hasEnoughJobTime,
+            hasEnoughIncome,
+            creditUnderLimit
+        });
+
+        return isApproved;
+    }
+
+    function calculateYearlyIncome(monthlyIncome) {
+        return monthlyIncome * 12;
+    }
+
+    function evaluateCreditResult(isApproved, conditions) {
+        let message = isApproved ?
+            "¡Crédito APROBADO!" :
+            "Crédito RECHAZADO por las siguientes razones:\n";
+
+        if (!isApproved) {
+            if (!conditions.hasNoDebtHistory) {
+                message += "- Tiene historial de morosidad\n";
+            }
+            if (!conditions.hasEnoughJobTime) {
+                message += "- Antigüedad laboral insuficiente (mínimo 24 meses)\n";
+            }
+            if (!conditions.hasEnoughIncome) {
+                message += "- Ingresos mensuales insuficientes para la cuota\n";
+            }
+            if (!conditions.creditUnderLimit) {
+                message += "- Monto del crédito supera el 40% de los ingresos anuales\n";
+            }
+        }
+        console.log(message);
+    }
 });

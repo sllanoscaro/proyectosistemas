@@ -12,7 +12,7 @@
 <body>
 <!-- Logo centrado fuera del recuadro -->
 <div class="logo-container">
-    <img src="/public/icons/arbol-de-graficos.png" alt="Ícono árbol de decisión">
+    <img src="/icons/arbol-de-graficos.png" alt="Ícono árbol de decisión">
 </div>
 <main>
     <div class="content-box">
@@ -25,7 +25,7 @@
                 ayuda a encontrar la correlación entre variables y así predecir una variable de salida en función de una o más variables).
             </p>
             <div class="centered-image">
-                <img src="/public/images/DecisionTree.drawio(1).png" alt="Ejemplo árbol jugar tenis">
+                <img src="/images/DecisionTree.drawio(1).png" alt="Ejemplo árbol jugar tenis">
             </div>
         </section>
 
@@ -53,7 +53,7 @@
                     de diagrama de flujo simula una representación de la toma de decisiones en una organización, facilitando el entendimiento de las razones
                     detrás de una decisión.
                 </p>
-                <img src="/public/icons/arbol-de-graficos.png" alt="Icono árbol objetivo" class="objetivo-icono">
+                <img src="/icons/arbol-de-graficos.png" alt="Icono árbol objetivo" class="objetivo-icono">
             </div>
         </section>
     </div>
@@ -70,57 +70,90 @@
         </section>
     </div>
 
-    <div class="content-box-medium">
-        <h3>Parámetros de entrada</h3>
+    <div class="content-box-padre">
+        <div class="content-box-medium">
+            <h3>Parámetros de entrada</h3>
 
-        <div class="input-group">
-            <label><strong>Monto del crédito solicitado</strong></label>
-            <div class="slider-container">
-                <span class="slider-value" id="creditAmountValue">$ 580.750</span>
-                <input type="range" min="100000" max="100000000" value="580750" class="slider" id="creditAmountSlider">
-                <div class="slider-labels">
-                    <span>$ 100.000</span>
-                    <span>$ 100.000.000</span>
+            <div class="input-group">
+                <label><strong>Monto del crédito solicitado</strong></label>
+                <div class="slider-container">
+                    <span class="slider-value" id="creditAmountValue">$ 580.750</span>
+                    <input type="range" min="100000" max="100000000" value="580750" class="slider" id="creditAmountSlider">
+                    <div class="slider-labels">
+                        <span>$ 100.000</span>
+                        <span>$ 100.000.000</span>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="input-group">
-            <label><strong>Duración en el trabajo actual</strong></label>
-            <div class="slider-container">
-                <span class="slider-value" id="jobDurationValue">3 años 2 meses</span>
-                <input type="range" min="1" max="60" value="38" class="slider" id="jobDurationSlider">
-                <div class="slider-labels">
-                    <span>1 mes</span>
-                    <span>5 años</span>
+            <div class="input-group">
+                <label><strong>Duración en el trabajo actual</strong></label>
+                <div class="slider-container">
+                    <span class="slider-value" id="jobDurationValue">3 años 2 meses</span>
+                    <input type="range" min="1" max="60" value="38" class="slider" id="jobDurationSlider">
+                    <div class="slider-labels">
+                        <span>1 mes</span>
+                        <span>5 años</span>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="input-group">
-            <label><strong>Ingresos del último mes</strong></label>
-            <div class="slider-container">
-                <span class="slider-value" id="incomeValue">$ 2.500.000</span>
-                <input type="range" min="529000" max="10000000" value="2500000" class="slider" id="incomeSlider">
-                <div class="slider-labels">
-                    <span>$ 529.000</span>
-                    <span>$ 10.000.000</span>
+            <div class="input-group">
+                <label><strong>Ingresos del último mes</strong></label>
+                <div class="slider-container">
+                    <span class="slider-value" id="incomeValue">$ 2.500.000</span>
+                    <input type="range" min="529000" max="10000000" value="2500000" class="slider" id="incomeSlider">
+                    <div class="slider-labels">
+                        <span>$ 529.000</span>
+                        <span>$ 10.000.000</span>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="input-group">
-            <label><strong>¿Registra historial de morosidad?</strong></label>
-            <div class="button-group">
-                <button class="debt-history-btn active" id="btnYes">Sí</button>
-                <button class="debt-history-btn" id="btnNo">No</button>
+            <div class="input-group">
+                <label><strong>¿Registra historial de morosidad?</strong></label>
+                <div class="button-group">
+                    <button class="debt-history-btn active" id="btnYes">Sí</button>
+                    <button class="debt-history-btn" id="btnNo">No</button>
+                </div>
             </div>
+
+            <button class="submit-button" id="submitBtn">¡Ingresar datos!</button>
         </div>
 
-        <button class="submit-button" id="submitBtn">¡Ingresar datos!</button>
+        <div class="content-box-medium-2">
+            <div id="decision-tree">
+                <div class="node" id="node1">¿Tiene historial de morosidad?</div>
+
+                <div class="child">
+                    <div class="node" id="node2">¿Ingresos > Monto crédito?</div>
+
+                    <div class="child">
+                        <div class="node" id="node3">¿Antigüedad laboral ≥ 24 meses?</div>
+
+                        <div class="child">
+                            <div class="node" id="node4">¿Crédito ≤ 40% de ingresos anuales?</div>
+
+                            <div class="child">
+                                <div class="leaf approved" id="node5">✅ Aprobado</div>
+                                <div class="leaf rejected" id="node5r">❌ Rechazado</div>
+                            </div>
+                        </div>
+
+                        <div class="leaf rejected" id="node3r">❌ Rechazado</div>
+                    </div>
+
+                    <div class="leaf rejected" id="node2r">❌ Rechazado</div>
+                </div>
+
+                <div class="leaf rejected" id="node1r">❌ Rechazado</div>
+            </div>
+
+        </div>
+
     </div>
 
-    <script src="/public/js/main_tree.js"></script>
+    <script src="/js/main_tree.js"></script>
 </main>
 </body>
 </html>
