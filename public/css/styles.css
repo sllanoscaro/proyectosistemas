@@ -40,6 +40,7 @@ h2, h3 {
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
 }
 
 .section-divider {
@@ -113,13 +114,7 @@ strong {
     color: inherit; /* hereda el color del texto, ya no es verde */
 }
 
-/* Reutilización del content-box existente para un solo contenedor */
-.content-box {
-    background-color: #ffffff;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
+
 
 .objetivo-content {
     display: flex;
@@ -137,4 +132,7 @@ strong {
     width: 120px;
     height: 120px;
     flex-shrink: 0;
+}
+
+.interactivo {
 }
