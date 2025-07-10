@@ -4,11 +4,11 @@ const app = express();
 const port = 3000;
 
 // Servir archivos estáticos desde la carpeta public
-app.use(express.static(path.join(__dirname, 'public')));
+app.use('/public', express.static(path.join(__dirname, 'public')));
 
 // Ruta principal
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, 'public/views/index.html'));
 });
 
 // Iniciar el servidor

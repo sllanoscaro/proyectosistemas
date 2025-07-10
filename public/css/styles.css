@@ -1,54 +1,140 @@
-/* Estilos básicos */
+/* styles.css */
+* {
+    font-family: "Noto Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+            "wdth" 100;
+}
+
 body {
-    font-family: 'Arial', sans-serif;
+    background-color: #eaf8f0;
+    color: #1a1a1a;
     line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    color: #333;
-}
-
-header {
-    background: #2c3e50;
-    color: white;
-    padding: 1rem;
-    text-align: center;
-}
-
-nav {
-    background: #34495e;
-    padding: 0.5rem;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    padding: 0;
-}
-
-nav ul li {
-    margin: 0 1rem;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
 }
 
 main {
     padding: 2rem;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: auto;
 }
 
-section {
-    margin-bottom: 2rem;
-    padding: 1rem;
-    border-bottom: 1px solid #eee;
+h2, h3 {
+    color: #1a1a1a;
+    font-weight: 700;
+    margin-bottom: 1rem;
 }
 
-footer {
+.icon-top {
     text-align: center;
-    padding: 1rem;
-    background: #ecf0f1;
+    margin-bottom: 1.5rem;
+}
+
+.icon-top img {
+    height: 60px;
+}
+
+.content-box {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.section-divider {
+    height: 1px;
+    background-color: #cce3d8;
+    margin: 2rem 0;
+    border: none;
+}
+
+.centered-image {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.centered-image img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.component-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.component-list li {
+    margin-bottom: 1rem;
+    text-align: justify;
+    font-weight: 600;
+}
+
+.tag {
+    font-weight: bold;
+    display: inline-block;
+    margin-right: 0.5rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    color: white;
+    font-size: 0.95rem;
+}
+
+.tag.bloque { background-color: #3db46d; }
+
+p {
+    margin-bottom: 1rem;
+    text-align: justify;
+}
+
+strong {
+    font-weight: bold;
+    color: #1a1a1a;
+}
+
+/* Logo fuera del recuadro */
+.logo-container {
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.logo-container img {
+    width: 100px;
+    height: 100px;
+}
+
+/* Color del texto en negrita */
+strong {
+    font-weight: bold;
+    color: inherit; /* hereda el color del texto, ya no es verde */
+}
+
+/* Reutilización del content-box existente para un solo contenedor */
+.content-box {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.objetivo-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+.objetivo-content p {
+    flex: 1;
+    text-align: justify;
+}
+
+.objetivo-icono {
+    width: 120px;
+    height: 120px;
+    flex-shrink: 0;
 }

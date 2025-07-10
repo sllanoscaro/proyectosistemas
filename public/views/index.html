@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Árboles de Decisión - ICC608</title>
+    <link rel="stylesheet" href="/public/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+<!-- Logo centrado fuera del recuadro -->
+<div class="logo-container">
+    <img src="/public/icons/arbol-de-graficos.png" alt="Ícono árbol de decisión">
+</div>
+<main>
+    <div class="content-box">
+
+        <section class="intro-section">
+            <h2>¿Qué son los árboles de decisiones?</h2>
+            <p>
+                Es un método de aprendizaje <u><strong>supervisado no paramétrico</strong></u> utilizado para tareas tanto de <strong>clasificación</strong>
+                (proceso de categorizar un conjunto de datos en clases) como de <strong>regresión</strong> (técnica de aprendizaje que
+                ayuda a encontrar la correlación entre variables y así predecir una variable de salida en función de una o más variables).
+            </p>
+            <div class="centered-image">
+                <img src="/public/images/DecisionTree.drawio(1).png" alt="Ejemplo árbol jugar tenis">
+            </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <section class="componentes">
+            <h3>Componentes clave</h3>
+            <p>Este algoritmo de aprendizaje utiliza una estructura jerárquica de árbol (de ahí el nombre), la cuál está construida con los siguientes componentes:</p>
+            <ul class="component-list">
+                <li><span class="tag bloque">Nodo raíz →</span> Corresponde al punto de partida de un árbol, y define una pregunta que contiene la mejor característica para dividir un conjunto de datos.</li>
+                <li><span class="tag bloque">Nodo de decisión →</span> Punto donde el árbol hace una pregunta sobre un atributo o característica en específico.</li>
+                <li><span class="tag bloque">Rama →</span> Corresponde a las conexiones entre los nodos. Representan el resultado de una decisión.</li>
+                <li><span class="tag bloque">Hoja →</span> Es el final de un árbol. Representa la predicción final (clase o valor) de un árbol.</li>
+            </ul>
+        </section>
+
+        <hr class="section-divider">
+
+        <section class="objetivo">
+            <h3>Objetivo</h3>
+            <div class="objetivo-content">
+                <p>
+                    Su objetivo principal es crear un modelo que sea capaz de <strong>predecir el valor</strong> de una variable objetivo a través del
+                    aprendizaje de decisiones simples, deducidas en base a las características de un <strong>conjunto de datos</strong>. Su estructura en forma
+                    de diagrama de flujo simula una representación de la toma de decisiones en una organización, facilitando el entendimiento de las razones
+                    detrás de una decisión.
+                </p>
+                <img src="/public/icons/arbol-de-graficos.png" alt="Icono árbol objetivo" class="objetivo-icono">
+            </div>
+        </section>
+    </div>
+</main>
+</body>
+</html>
