@@ -60,7 +60,7 @@
 
     <div class="content-box">
         <section class="interactivo">
-            <h2>¡Pruébalo tú mismo!</h2>
+            <h3>¡Pruébalo tú mismo!</h3>
             <p>
                 Imagina que trabajas en un banco y tu tarea es evaluar solicitudes de crédito. Cada día recibes información clave de los postulantes: nivel de ingresos, historial de pago, edad, entre otros datos importantes.
                 Usando esta herramienta, te pondrás en el rol del evaluador que, paso a paso, deberá tomar decisiones basadas en criterios predefinidos.
@@ -69,6 +69,58 @@
             </p>
         </section>
     </div>
+
+    <div class="content-box-medium">
+        <h3>Parámetros de entrada</h3>
+
+        <div class="input-group">
+            <label><strong>Monto del crédito solicitado</strong></label>
+            <div class="slider-container">
+                <span class="slider-value" id="creditAmountValue">$ 580.750</span>
+                <input type="range" min="100000" max="100000000" value="580750" class="slider" id="creditAmountSlider">
+                <div class="slider-labels">
+                    <span>$ 100.000</span>
+                    <span>$ 100.000.000</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label><strong>Duración en el trabajo actual</strong></label>
+            <div class="slider-container">
+                <span class="slider-value" id="jobDurationValue">3 años 2 meses</span>
+                <input type="range" min="1" max="60" value="38" class="slider" id="jobDurationSlider">
+                <div class="slider-labels">
+                    <span>1 mes</span>
+                    <span>5 años</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label><strong>Ingresos del último mes</strong></label>
+            <div class="slider-container">
+                <span class="slider-value" id="incomeValue">$ 2.500.000</span>
+                <input type="range" min="529000" max="10000000" value="2500000" class="slider" id="incomeSlider">
+                <div class="slider-labels">
+                    <span>$ 529.000</span>
+                    <span>$ 10.000.000</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label><strong>¿Registra historial de morosidad?</strong></label>
+            <div class="button-group">
+                <button class="debt-history-btn active" id="btnYes">Sí</button>
+                <button class="debt-history-btn" id="btnNo">No</button>
+            </div>
+        </div>
+
+        <button class="submit-button" id="submitBtn">¡Ingresar datos!</button>
+    </div>
+
+    <script src="/public/js/main_tree.js"></script>
 </main>
 </body>
 </html>

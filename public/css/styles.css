@@ -43,6 +43,15 @@ h2, h3 {
     margin-bottom: 2rem;
 }
 
+.content-box-medium {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+    width: 500px;
+}
+
 .section-divider {
     height: 1px;
     background-color: #cce3d8;
@@ -134,5 +143,129 @@ strong {
     flex-shrink: 0;
 }
 
-.interactivo {
+.input-group {
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.input-group label {
+    display: block;
+    font-size: 18px;
+    color: #000000;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.debt-history-btn {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    flex-grow: 1; /* Para que los botones ocupen el mismo espacio */
+}
+
+#btnYes {
+    background-color: #e74c3c; /* Rojo */
+    color: white;
+}
+
+#btnNo {
+    background-color: #2ecc71; /* Verde */
+    color: white;
+}
+
+.debt-history-btn.active {
+    outline: 3px solid #3498db; /* Borde azul para el seleccionado */
+}
+
+/* Sliders */
+.slider-container {
+    position: relative;
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+
+.slider-value {
+    position: absolute;
+    top: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #2ecc71; /* Verde como en la imagen */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    white-space: nowrap; /* Evita que el texto se rompa */
+}
+
+.slider {
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 10px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    border-radius: 5px;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #2ecc71; /* Verde */
+    cursor: pointer;
+    border-radius: 50%;
+    border: 3px solid #fff; /* Borde blanco para el pulgar */
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #2ecc71; /* Verde */
+    cursor: pointer;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+.slider-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #777;
+    margin-top: 5px;
+}
+
+/* Botón de enviar */
+.submit-button {
+    background-color: #2ecc71; /* Verde */
+    color: white;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    width: 100%;
+    box-shadow: 0 4px 10px rgba(46, 204, 113, 0.4);
+}
+
+.submit-button:hover {
+    background-color: #27ae60;
 }
