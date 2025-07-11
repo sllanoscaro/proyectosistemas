@@ -8,7 +8,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Ruta principal
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public/views/view_tree.html'));
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 // Iniciar el servidor
