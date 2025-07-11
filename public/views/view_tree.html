@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Árboles de Decisión - ICC608</title>
+    <link rel="stylesheet" href="/css/styles_tree.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main>
+
+        <section class="hero-section">
+            <div class="hero-icon">
+                <img src="/icons/arbol-de-graficos.png" alt="Ícono árbol de decisión" class="main-icon" />
+            </div>
+            <h1 class="hero-title">Árboles de decisiones</h1>
+            <p class="hero-subtitle">
+                Aprende cómo los computadores toman decisiones utilizando modelos de árbol de decisión.
+            </p>
+        </section>
+
+        <div class="content-box">
+
+            <section class="intro-section">
+                <h2>¿Qué son los árboles de decisiones?</h2>
+                <p>
+                    Es un método de aprendizaje <a href="#" id="openModal" class="info-link">supervisado no paramétrico</a> utilizado para tareas tanto de <strong>clasificación</strong>
+                    (proceso de categorizar un conjunto de datos en clases) como de <strong>regresión</strong> (técnica de aprendizaje que
+                    ayuda a encontrar la correlación entre variables y así predecir una variable de salida en función de una o más variables).
+                </p>
+                <div class="centered-image">
+                    <img src="/images/DecisionTree.drawio(1).png" alt="Ejemplo árbol jugar tenis">
+                </div>
+            </section>
+
+            <hr class="section-divider">
+
+            <section class="componentes">
+                <h3>Componentes clave</h3>
+                <p>Este algoritmo de aprendizaje utiliza una estructura jerárquica de árbol (de ahí el nombre), la cuál está construida con los siguientes componentes:</p>
+                <ul class="component-list">
+                    <li><span class="tag bloque">Nodo raíz →</span> Corresponde al punto de partida de un árbol, y define una pregunta que contiene la mejor característica para dividir un conjunto de datos.</li>
+                    <li><span class="tag bloque">Nodo de decisión →</span> Punto donde el árbol hace una pregunta sobre un atributo o característica en específico.</li>
+                    <li><span class="tag bloque">Rama →</span> Corresponde a las conexiones entre los nodos. Representan el resultado de una decisión.</li>
+                    <li><span class="tag bloque">Hoja →</span> Es el final de un árbol. Representa la predicción final (clase o valor) de un árbol.</li>
+                </ul>
+            </section>
+
+            <hr class="section-divider">
+
+            <section class="objetivo">
+                <h3>Objetivo</h3>
+                <div class="objetivo-content">
+                    <p>
+                        Su objetivo principal es crear un modelo que sea capaz de <strong>predecir el valor</strong> de una variable objetivo a través del
+                        aprendizaje de decisiones simples, deducidas en base a las características de un <strong>conjunto de datos</strong>. Su estructura en forma
+                        de diagrama de flujo simula una representación de la toma de decisiones en una organización, facilitando el entendimiento de las razones
+                        detrás de una decisión.
+                    </p>
+                    <img src="/icons/arbol-de-graficos.png" alt="Icono árbol objetivo" class="objetivo-icono">
+                </div>
+            </section>
+        </div>
+
+        <div class="content-box">
+            <section class="interactivo">
+                <h3>¡Pruébalo tú mismo!</h3>
+                <p>
+                    Imagina que trabajas en un banco y tu tarea es evaluar solicitudes de crédito. Cada día recibes información clave de los postulantes: nivel de ingresos, historial de pago, edad, entre otros datos importantes.
+                    Usando esta herramienta, te pondrás en el rol del evaluador que, paso a paso, deberá tomar decisiones basadas en criterios predefinidos.
+                    Explora cómo pequeños cambios en los datos pueden llevar a distintas decisiones, y aprende de forma visual y sencilla cómo funciona este poderoso algoritmo.
+                    <strong>¡Es tu turno de decidir!</strong>
+                </p>
+            </section>
+        </div>
+
+        <div class="content-box-padre">
+            <div class="content-box-medium">
+                <h3>Parámetros de entrada</h3>
+
+                <div class="input-group">
+                    <label><strong>Monto del crédito solicitado</strong></label>
+                    <div class="slider-container">
+                        <span class="slider-value" id="creditAmountValue">$ 580.750</span>
+                        <input type="range" min="100000" max="100000000" value="580750" class="slider" id="creditAmountSlider">
+                        <div class="slider-labels">
+                            <span>$ 100.000</span>
+                            <span>$ 100.000.000</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label><strong>Antigüedad laboral</strong></label>
+                    <div class="slider-container">
+                        <span class="slider-value" id="jobDurationValue">3 años 2 meses</span>
+                        <input type="range" min="1" max="60" value="38" class="slider" id="jobDurationSlider">
+                        <div class="slider-labels">
+                            <span>1 mes</span>
+                            <span>5 años</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label><strong>Ingresos del último mes</strong></label>
+                    <div class="slider-container">
+                        <span class="slider-value" id="incomeValue">$ 2.500.000</span>
+                        <input type="range" min="529000" max="10000000" value="2500000" class="slider" id="incomeSlider">
+                        <div class="slider-labels">
+                            <span>$ 529.000</span>
+                            <span>$ 10.000.000</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label><strong>Plazo del préstamo</strong></label>
+                    <div class="slider-container">
+                        <span class="slider-value" id="timeLoanValue">3 años 2 meses</span>
+                        <input type="range" min="1" max="48" value="38" class="slider" id="timeLoanSlider">
+                        <div class="slider-labels">
+                            <span>1 mes</span>
+                            <span>4 años</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label><strong>% del sueldo respecto a la cuota</strong></label>
+                    <div class="slider-container">
+                        <span class="slider-value" id="creditRateValue">38 %</span>
+                        <input type="range" min="0" max="100" value="38" class="slider" id="creditRateSlider">
+                        <div class="slider-labels">
+                            <span>0%</span>
+                            <span>100%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label><strong>¿Registra historial de morosidad?</strong></label>
+                    <div class="button-group">
+                        <button class="debt-history-btn active" id="btnYes">Sí</button>
+                        <button class="debt-history-btn" id="btnNo">No</button>
+                    </div>
+                </div>
+
+                <button class="submit-button" id="submitBtn">¡Ingresar datos!</button>
+            </div>
+
+            <div class="content-box-medium-2">
+                <div id="tree-container">
+                    <svg id="decisionTree" width="800" height="600"></svg>
+                    <h3>Condiciones para aprobar el crédito</h3>
+                    <ul>
+                        <li>No debe registrar historial de morosidad</li>
+                        <li>Debe tener al menos 2 años de antigüedad laboral</li>
+                        <li>Sus ingresos anuales deben cubrir el total de cuotas [((crédito / plazo) / ingresos) <= porcentaje del sueldo]</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <script src="https://d3js.org/d3.v7.min.js"></script>
+        <script src="/js/render_tree.js"></script>
+        <script src="/js/main_tree.js"></script>
+    </main>
+
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <h2>¿Qué significa?</h2>
+            <p>
+                El <strong>aprendizaje supervisado</strong> es un tipo de modelo que aprende a partir de
+                <strong>ejemplos etiquetados</strong>, como enseñar a alguien a distinguir entre perros y gatos mostrándole imágenes
+                con sus respectivos nombres.
+            </p>
+            <p>
+                Dentro de este enfoque, un <strong>modelo no paramétrico</strong>, como un árbol de decisión, no tiene una forma fija,
+                sino que su estructura <strong>se adapta a la complejidad de los datos</strong>: si los datos son simples, el árbol será
+                pequeño; si son complejos, crecerá con más ramas y hojas para capturar mejor la información.
+            </p>
+            <button id="closeModal" class="close-btn">Cerrar</button>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,412 @@
+/* styles_tree.css */
+* {
+    font-family: "Noto Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+            "wdth" 100;
+}
+
+body {
+    background-color: #eaf8f0;
+    color: #1a1a1a;
+    line-height: 1.6;
+}
+
+main {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: auto;
+}
+
+h2, h3 {
+    color: #1a1a1a;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.icon-top {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.icon-top img {
+    height: 60px;
+}
+
+.content-box {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+}
+
+.content-box-medium {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+    width: 400px;
+}
+
+.content-box-medium-2 {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+    width: 700px;
+    height: 965px;
+}
+
+.content-box-padre {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.section-divider {
+    height: 1px;
+    background-color: #cce3d8;
+    margin: 2rem 0;
+    border: none;
+}
+
+.centered-image {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.centered-image img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.component-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.component-list li {
+    margin-bottom: 1rem;
+    text-align: justify;
+    font-weight: 600;
+}
+
+.tag {
+    font-weight: bold;
+    display: inline-block;
+    margin-right: 0.5rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    color: white;
+    font-size: 0.95rem;
+}
+
+.tag.bloque { background-color: #3db46d; }
+
+p {
+    margin-bottom: 1rem;
+    text-align: justify;
+}
+
+strong {
+    font-weight: bold;
+    color: #1a1a1a;
+}
+
+/* Logo fuera del recuadro */
+.logo-container {
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.logo-container img {
+    width: 100px;
+    height: 100px;
+}
+
+/* Color del texto en negrita */
+strong {
+    font-weight: bold;
+    color: inherit; /* hereda el color del texto, ya no es verde */
+}
+
+
+
+.objetivo-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+.objetivo-content p {
+    flex: 1;
+    text-align: justify;
+}
+
+.objetivo-icono {
+    width: 120px;
+    height: 120px;
+    flex-shrink: 0;
+}
+
+.input-group {
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.input-group label {
+    display: block;
+    font-size: 18px;
+    color: #000000;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.debt-history-btn {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    flex-grow: 1; /* Para que los botones ocupen el mismo espacio */
+}
+
+#btnYes {
+    background-color: #e74c3c; /* Rojo */
+    color: white;
+}
+
+#btnNo {
+    background-color: #2ecc71; /* Verde */
+    color: white;
+}
+
+.debt-history-btn.active {
+    outline: 3px solid #3498db; /* Borde azul para el seleccionado */
+}
+
+/* Sliders */
+.slider-container {
+    position: relative;
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+
+.slider-value {
+    position: absolute;
+    top: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #2ecc71; /* Verde como en la imagen */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    white-space: nowrap; /* Evita que el texto se rompa */
+}
+
+.slider {
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 10px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    border-radius: 5px;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #2ecc71; /* Verde */
+    cursor: pointer;
+    border-radius: 50%;
+    border: 3px solid #fff; /* Borde blanco para el pulgar */
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #2ecc71; /* Verde */
+    cursor: pointer;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+.slider-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #777;
+    margin-top: 5px;
+}
+
+/* Botón de enviar */
+.submit-button {
+    background-color: #2ecc71; /* Verde */
+    color: white;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    width: 100%;
+    box-shadow: 0 4px 10px rgba(46, 204, 113, 0.4);
+}
+
+.submit-button:hover {
+    background-color: #27ae60;
+}
+
+/* ... (Estilos existentes para el contenedor principal y los inputs) ... */
+.tree-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.node circle {
+    fill: #2ecc71;
+    stroke: #ccc;
+    stroke-width: 4px;
+}
+
+.node text {
+    font: 14px sans-serif;
+    fill: #000;
+}
+
+.leaf circle {
+    fill: #2ecc71;
+}
+
+.reject circle {
+    fill: #2ecc71;
+}
+
+.highlight circle {
+    stroke: #3498db;
+    stroke-width: 6px;
+}
+
+.link {
+    fill: none;
+    stroke: #000;
+    stroke-width: 2px;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 4rem 0 2rem;
+}
+
+.hero-icon {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 1.5rem;
+}
+
+.main-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.hero-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1F2937;
+    margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    color: #6B7280;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Modal base */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5); /* Fondo oscuro semitransparente */
+}
+
+/* Contenido del modal */
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 2rem;
+    border-radius: 15px;
+    max-width: 600px;
+    font-size: 16px;
+    line-height: 1.6;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Título */
+.modal-content h2 {
+    color: #2ecc71;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+/* Botón cerrar */
+.close-btn {
+    margin-top: 1rem;
+    display: block;
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Enlace que abre el modal */
+.info-link {
+    font-weight: bold;
+    color: #2ecc71;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
