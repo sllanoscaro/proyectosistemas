@@ -59,6 +59,7 @@ h2, h3 {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     margin-bottom: 2rem;
     width: 700px;
+    height: 965px;
 }
 
 .content-box-padre {
@@ -286,46 +287,126 @@ strong {
 }
 
 /* ... (Estilos existentes para el contenedor principal y los inputs) ... */
-
-#decision-tree {
+.tree-container {
+    display: flex;
+    justify-content: center;
     margin-top: 2rem;
-    padding-left: 1rem;
-    border-left: 3px solid #cfd8dc;
 }
 
-.node, .leaf {
+.node circle {
+    fill: #2ecc71;
+    stroke: #ccc;
+    stroke-width: 4px;
+}
+
+.node text {
+    font: 14px sans-serif;
+    fill: #000;
+}
+
+.leaf circle {
+    fill: #2ecc71;
+}
+
+.reject circle {
+    fill: #2ecc71;
+}
+
+.highlight circle {
+    stroke: #3498db;
+    stroke-width: 6px;
+}
+
+.link {
+    fill: none;
+    stroke: #000;
+    stroke-width: 2px;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 4rem 0 2rem;
+}
+
+.hero-icon {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 1.5rem;
+}
+
+.main-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.hero-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1F2937;
+    margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    color: #6B7280;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Modal base */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5); /* Fondo oscuro semitransparente */
+}
+
+/* Contenido del modal */
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 2rem;
+    border-radius: 15px;
+    max-width: 600px;
+    font-size: 16px;
+    line-height: 1.6;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Título */
+.modal-content h2 {
+    color: #2ecc71;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+/* Botón cerrar */
+.close-btn {
     margin-top: 1rem;
-    padding: 0.8rem 1.2rem;
-    background-color: #ffffff;
-    border: 2px solid #cfd8dc;
-    border-radius: 6px;
-    width: fit-content;
-    min-width: 300px;
-    position: relative;
-    font-weight: normal;
-    transition: background-color 0.3s, border-color 0.3s;
+    display: block;
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.child {
-    margin-left: 2rem;
-    position: relative;
-    padding-left: 1rem;
-    border-left: 2px dashed #b0bec5;
-}
-
-.node.highlight {
-    background-color: #e0f7e9;
-    border-color: #2ecc71;
-}
-
-.leaf.approved.highlight {
-    background-color: #d4edda;
-    border-color: #28a745;
+/* Enlace que abre el modal */
+.info-link {
     font-weight: bold;
+    color: #2ecc71;
+    text-decoration: underline;
+    cursor: pointer;
 }
 
-.leaf.rejected.highlight {
-    background-color: #f8d7da;
-    border-color: #dc3545;
-    font-weight: bold;
-}
