@@ -473,3 +473,30 @@ strong {
     cursor: pointer;
 }
 
+.code-section {
+    margin-top: 3rem;
+    padding: 1rem;
+    background-color: #1e1e1e;
+    color: #dcdcdc;
+    border-radius: 10px;
+    font-family: 'Courier New', monospace;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    overflow-x: auto;
+}
+
+.code-section h3 {
+    color: #00e676;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.code-section pre {
+    margin: 0;
+    white-space: pre-wrap;
+}
+
+.code-section code {
+    font-size: 14px;
+    line-height: 1.6;
+    display: block;
+}
