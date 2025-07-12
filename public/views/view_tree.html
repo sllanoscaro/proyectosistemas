@@ -179,8 +179,52 @@
                     </ul>
                 </div>
             </div>
-
         </div>
+
+        <section class="code-section">
+            <h3>¿Cómo funciona el algoritmo?</h3>
+            <pre><code class="language-js">
+
+                // Método que capta los datos ingresados por el usuario
+                submitBtn.addEventListener('click', () => {
+                    const data = {
+                    historialMorosidad: hasDebtHistory ? 'Sí' : 'No',           // ¿El cliente tiene historial de morosidad?
+                    montoCredito: parseInt(creditAmountSlider.value),           // ¿Cuál es el monto del crédito?
+                    duracionTrabajoMeses: parseInt(jobDurationSlider.value),    // ¿Cuánto ha trabajado el cliente en su empleo actual?
+                    ingresosUltimoMes: parseInt(incomeSlider.value),            // ¿Cuánto ganó el cliente el mes pasado?
+                    duracionPrestamo: parseInt(timeLoanSlider.value),           // ¿En cuánto tiempo piensa el cliente en pagar el crédito?
+                    tasaInteres: parseInt(creditRateSlider.value)               // ¿Cúal es el porcentaje que pagará todos los meses respecto a su sueldo?
+                };
+                    console.log('Datos de entrada:', data);
+                    evaluateDecisionTree(data);                                 // Llamada a método que maneja la lógica
+                });
+
+                // Método que recibe los datos de entrada y los procesa
+                function evaluateDecisionTree(data) {
+                    const yearlyIncome = data.ingresosUltimoMes * 12;           // Ingresos anuales aproximados
+                    const timeLoanMonths = data.duracionPrestamo;               // Duración del préstamo en meses
+                    const creditRate = data.tasaInteres / 100;                  // Conversión a porcentaje de la tasa de pago
+
+                    const hasNoDebtHistory = data.historialMorosidad === 'No';  // Verdadero si no tiene historial de morosidad
+                    const hasEnoughJobTime = data.duracionTrabajoMeses >= 24;   // Verdadero si ha trabajado más de 24 meses
+                    const hasEnoughIncome = yearlyIncome >= (timeLoanMonths * creditRate); // Verdadero si con la tasa definida alcanza a pagar el crédito con sus ingresos
+
+                    const isApproved = hasNoDebtHistory &&                      // Si todo lo anterior es verdadero, el árbol definió su camino hasta la hoja
+                        hasEnoughJobTime &&
+                        hasEnoughIncome;
+
+                    highlightTreePath({ hasNoDebtHistory, hasEnoughJobTime, hasEnoughIncome });  // Ilumina el árbol gráfico según las condicionales anteriores
+
+                    evaluateCreditResult(isApproved, {                          // Si todo lo anterior es verdadero, el crédito se aprueba
+                        hasNoDebtHistory,
+                        hasEnoughJobTime,
+                        hasEnoughIncome
+                    });
+
+                    return isApproved;                                          // Retorna verdadero o falso dependiendo del resultado
+                }
+            </code></pre>
+        </section>
 
         <script src="https://d3js.org/d3.v7.min.js"></script>
         <script src="../js/render_tree.js"></script>
