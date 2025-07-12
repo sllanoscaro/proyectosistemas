@@ -21,6 +21,20 @@ function showSection(section) {
             content: "Una predicción es el resultado que produce un modelo de ML después de procesar nuevos datos. Es la 'respuesta' que da el sistema basándose en lo que aprendió durante el entrenamiento.",
             img: "icons/predicciones.png",
             color: "#9333EA"
+        },
+        conclu_arboles: {
+            title: "Ventajas y limitaciones de los Árboles de Decisión",
+            content:
+                "<strong>Ventajas:</strong> Son intuitivos, fáciles de interpretar y permiten visualizar el proceso de toma de decisiones. Funcionan bien con datos categóricos y numéricos, y requieren poca preparación de datos.<br>" +
+                "<br><strong>Limitaciones:</strong> Pueden sobreajustarse a los datos de entrenamiento, ser inestables ante pequeñas variaciones y no capturan relaciones complejas entre variables.",
+            img: "icons/arbol-de-graficos.png",
+        },
+        conclu_aprendizaje: {
+            title: "Ventajas y limitaciones del Aprendizaje Supervisado",
+            content:
+                "<strong>Ventajas:</strong> Permite resolver problemas complejos, aprende de la experiencia directa y se adapta a entornos dinámicos. Es capaz de optimizar estrategias a largo plazo y manejar gratificación aplazada.<br>" +
+                "<br><strong>Limitaciones:</strong> Requiere muchos datos y recursos computacionales, depende fuertemente del diseño de la función de recompensa y puede ser difícil de depurar e interpretar.",
+            img: "icons/flecha-de-diana.png"
         }
     };
 
