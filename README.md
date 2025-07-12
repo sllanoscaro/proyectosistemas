@@ -1,5 +1,13 @@
 # Proyecto Semestral - [ICC608] Sistemas Inteligentes
 
+## Instrucciones de uso:
+Es necesario que su dispositivo cuente con los paquetes npm y nodejs instalados previamente.
+Al descargar el archivo del proyecto, ubicándose en la raiz del mismo, ejecute lo siguiente:
+
+- node server.js
+
+Luego abra su navegador en: localhost:3000.
+
 ## Estructura del Proyecto
 La aplicación cuenta con tres ventanas princpales, las cuales son:
 - Home (index.html)
