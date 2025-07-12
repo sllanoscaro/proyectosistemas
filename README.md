@@ -1,7 +1,7 @@
 # Proyecto Semestral - [ICC608] Sistemas Inteligentes
 
 ## Instrucciones de uso:
-Es necesario que su dispositivo cuente con los paquetes npm y nodejs instalados previamente.
+Es necesario que su dispositivo cuente con los paquetes npm y [node.js](https://nodejs.org/en) instalados previamente.
 Al descargar el archivo del proyecto, ubicándose en la raiz del mismo, ejecute lo siguiente:
 
 - node server.js
