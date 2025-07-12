@@ -4,11 +4,11 @@
 Es necesario que su dispositivo cuente con los paquetes npm y [node.js](https://nodejs.org/en) instalados previamente.
 Al descargar el archivo del proyecto, ubicándose en la raiz del mismo, ejecute los siguientes comandos en el mismo orden:
 
-``bash
+``
 npm install
 ``
 
-``bash
+``
 node server.js
 ``
 
